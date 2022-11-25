@@ -6,3 +6,5 @@ reggie
 #### 软件架构
 SpringBoot
 Mybatis-Plus
+Mysql
+Redis

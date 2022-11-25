@@ -12,7 +12,7 @@ import java.util.UUID;
 public class test1 {
     @Test
     public void uploadTest(){
-        String s = UUID.randomUUID().toString().toString();
+        String s = UUID.randomUUID().toString();
         System.out.println(s);
         String picName = "h.sa,.jh.glo.jpg";
         String lastFileName = picName.substring(picName.lastIndexOf("."));
