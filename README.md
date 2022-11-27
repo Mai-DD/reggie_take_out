@@ -8,4 +8,5 @@ SpringBoot
 SpringCache
 Mybatis-Plus
 Mysql
+Sharding-JDBC
 Redis
