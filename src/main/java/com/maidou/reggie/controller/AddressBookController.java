@@ -7,6 +7,7 @@ import com.maidou.reggie.common.BaseContext;
 import com.maidou.reggie.common.R;
 import com.maidou.reggie.entity.AddressBook;
 import com.maidou.reggie.service.AddressBookService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
@@ -20,6 +21,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/addressBook")
+@Api(tags = "地址簿管理相关接口")
 public class AddressBookController {
 
     @Autowired

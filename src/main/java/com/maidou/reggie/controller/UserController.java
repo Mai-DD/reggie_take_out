@@ -5,6 +5,7 @@ import com.maidou.reggie.common.R;
 import com.maidou.reggie.entity.User;
 import com.maidou.reggie.service.UserService;
 import com.maidou.reggie.utils.ValidateCodeUtils;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -26,6 +27,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @RestController
 @RequestMapping("/user")
+@Api(tags = "用户相关接口")
 public class UserController {
 
     @Autowired

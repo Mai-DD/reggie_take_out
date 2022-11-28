@@ -11,6 +11,9 @@ import com.maidou.reggie.entity.SetmealDish;
 import com.maidou.reggie.service.CategoryService;
 import com.maidou.reggie.service.SetMealDishService;
 import com.maidou.reggie.service.SetMealService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,7 @@ import java.util.stream.Collectors;
  **/
 @Slf4j
 @RestController
+@Api(tags = "套餐相关接口")
 @RequestMapping("/setmeal")
 public class SetMealController {
     @Autowired
@@ -48,6 +52,7 @@ public class SetMealController {
      */
     @CacheEvict(value = "setMealCache",allEntries = true)
     @PostMapping
+    @ApiOperation("保存新增套餐接口")
     public R<String> save(@RequestBody SetmealDto setmealDto) {
         log.info("保存新增套餐: {}", setmealDto.toString());
         setMealService.saveWithDish(setmealDto);
@@ -62,6 +67,7 @@ public class SetMealController {
      * @param name
      * @return
      */
+    @ApiOperation("套餐分页查询接口")
     @GetMapping("/page")
     public R<Page> page(Integer page, Integer pageSize, String name) {
         Page<Setmeal> pageInfo = new Page<>(page, pageSize);
@@ -103,6 +109,7 @@ public class SetMealController {
      * @param ids
      * @return
      */
+    @ApiOperation("删除套餐接口")
     @CacheEvict(value = "setMealCache",allEntries = true)
     @DeleteMapping
     public R<String> delete(@RequestParam List<Long> ids) {
@@ -118,6 +125,7 @@ public class SetMealController {
      * @param ids
      * @return
      */
+    @ApiOperation("批量修改状态接口")
     @PostMapping("/status/{status}")
     public R<String> updateStatus(@PathVariable Integer status, @RequestParam List<Long> ids) {
         log.info("修改套餐状态为: {} ids: {}", status, ids);
@@ -148,6 +156,7 @@ public class SetMealController {
      * @param id
      * @return
      */
+    @ApiOperation("根据id回显关系表数据接口")
     @GetMapping("/{id}")
     public R<SetmealDto> selectById(@PathVariable Long id) {
         //select * from setmeal_dish where id = ?
@@ -162,6 +171,7 @@ public class SetMealController {
      * @param setmealDto
      * @return
      */
+    @ApiOperation("保存套餐的修改接口")
     @PutMapping
     public R<String> update(@RequestBody SetmealDto setmealDto) {
         log.info("保存套餐修改: {}", setmealDto.toString());
@@ -175,6 +185,7 @@ public class SetMealController {
      * @param setmeal
      * @return
      */
+    @ApiOperation("根据id查询套餐接口")
     @Cacheable(value = "setMealCache",key = "#setmeal.categoryId + '_' + #setmeal.status")
     @GetMapping("/list")
     public R<List<Setmeal>> list(Setmeal setmeal) {

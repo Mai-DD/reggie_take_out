@@ -10,6 +10,7 @@ import com.maidou.reggie.entity.DishFlavor;
 import com.maidou.reggie.service.CategoryService;
 import com.maidou.reggie.service.DishFlavorService;
 import com.maidou.reggie.service.DishService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequestMapping("/dish")
+@Api(tags = "菜品相关接口")
 public class DishController {
     @Autowired
     private DishService dishService;

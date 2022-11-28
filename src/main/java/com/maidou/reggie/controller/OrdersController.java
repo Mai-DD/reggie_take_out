@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.maidou.reggie.common.R;
 import com.maidou.reggie.entity.Orders;
 import com.maidou.reggie.service.OrdersService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/order")
+@Api(tags = "订单相关接口")
 public class OrdersController {
     @Autowired
     private OrdersService ordersService;

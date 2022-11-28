@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.maidou.reggie.common.R;
 import com.maidou.reggie.entity.Category;
 import com.maidou.reggie.service.CategoryService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/category")
+@Api(tags = "菜品分类管理相关接口")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

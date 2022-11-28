@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.maidou.reggie.common.R;
 import com.maidou.reggie.entity.Employee;
 import com.maidou.reggie.service.EmployeeService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
@@ -25,6 +26,7 @@ import java.util.Date;
 @Slf4j
 @RestController
 @RequestMapping("/employee")
+@Api(tags = "员工相关接口")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
